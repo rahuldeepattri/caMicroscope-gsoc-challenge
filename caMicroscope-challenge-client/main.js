@@ -48,6 +48,7 @@ function uploadImage() {
     }
 
     function showCombined(channels) {
+        document.getElementById("results").style.display = "block";
         // Get the canvas and context
         var canvas = document.getElementById("combined-canvas");
         var context = canvas.getContext("2d");
@@ -73,13 +74,27 @@ function uploadImage() {
 };
 
 function showPreview(){
+    document.getElementById("preview").style.display = "block";
     let filesSelected = document.getElementById("fileToUpload");
 
     let reader = new FileReader();
 
     reader.addEventListener("loadend", function (e) {
-        let img = (document.getElementById('previewImage'));
+        var canvas = document.getElementById("previewImage");
+        var ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        let img = new Image()
         img.src = e.srcElement.result;
+        img.onload = () => {
+            // get the scale
+            var scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+            // get the top left position of the image
+            var x = (canvas.width / 2) - (img.width / 2) * scale;
+            var y = (canvas.height / 2) - (img.height / 2) * scale;
+            ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
+
+        }
     })
 
     reader.readAsDataURL(filesSelected.files[0]);

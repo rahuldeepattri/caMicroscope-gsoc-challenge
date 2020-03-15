@@ -1,65 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Client UI</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Client UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+
+  <script src="main.js"></script>
 </head>
+
 <body>
-   
-  <div class="row">
+  <br><br>
+  <div class="container">
+    <div class="row">
 
-    <div class="col-md-12">
+      <p class="text-justify">Select an image by clicking at Choose Image below and preview will be shown.
+        After that click on Upload button. This will send file to server where the RGB channels will be seprated and
+        once server is done with processing the request, it will respond with URL for three images for Red, Green and
+        Channel.
+        Finally the images are shown on canvas and combined again in browser. Note the images might be appeared blurred due to fact that we are using canvas to show images.</p>
+      <p class="text-justify">
+        Click <a href="/server/swagger-ui.html">here </a> to see swagger ui.
+      </p>
 
+      <div class="col-md-12">
 
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-category">Prediction Service</h5>
-          <h4 class="card-title"> Upload Image</h4>
+        <div style="text-align:center">
+          <form enctype="multipart/form-data">
+            <input name="file" value="Choose Image" id="fileToUpload" type="file" onchange="showPreview()" />
+            <input type="button" value="Upload" id="upload" onclick="uploadImage()" />
+          </form>
+          <br><br>
+
+          <div class="col-md-12 hidden" id="preview" >
+            <h3>Selected File</h3>
+            <!-- <img id="previewImage" width="300vh" height="225vh" /> -->
+            <canvas id="previewImage"></canvas>
+          </div>
         </div>
-        <div class="card-body">
 
-          <div >
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-category">Image selected</h5>
-              </div>
-              <div class="card-body">
-                <div style="text-align:center">
+      </div>
+    </div>
 
-                  
+    <br><br>
+    <div id="results" class="hidden">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Red Channel</h3>
+          <canvas id="red-channel"></canvas>
+        </div> <!-- /col-md-4 -->
+        <div class="col-md-4">
+          <h3>Green Channel</h3>
+          <canvas id="green-channel"></canvas>
+        </div> <!-- /col-md-4 -->
+        <div class="col-md-4">
+          <h3>Blue Channel</h3>
+          <canvas id="blue-channel"></canvas>
+        </div> <!-- /col-md-4 -->
+      </div> <!-- /row -->
 
-                </div>
-              </div>
+      <br><br>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3 style="text-align:center">Combined Again</h3>
+          <div>
+            <div class="col-md-12">
+
+              <div style="text-align:center"><canvas id="combined-canvas"></canvas> </div>
             </div>
           </div>
-          <div style="text-align:center">
-
-            <form enctype="multipart/form-data">
-              <input name="file" id="fileToUpload" type="file" onchange="showPreview()"/>
-              <input type="button" id="upload" onclick="uploadImage()"  />
-            </form>
-            <br><br>
-            <img id="previewImage" />
-            <h3 *ngIf="isUploading">              
-                <i style="color: rgb(240, 170, 0)" class="now-ui-icons loader_refresh spin"></i>
-            </h3>
-            <h3 *ngIf="data!=undefined">{{data.data}}</h3>
-
-          </div>
-
         </div>
       </div>
-
-
-
-    <canvas id="red-channel" style="border:1px solid #d3d3d3;" ></canvas>
-    <canvas id="blue-channel" style="border:1px solid #d3d3d3;"></canvas>
-    <canvas id="green-channel" style="border:1px solid #d3d3d3;"></canvas>
-
-    <canvas id="combined-canvas" style="border:1px solid #d3d3d3;"></canvas>
+    </div>
 </body>
+
 </html>

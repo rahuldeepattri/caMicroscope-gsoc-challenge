@@ -46,7 +46,7 @@ public class BufferedImageRGBSplitter implements RGBImageSplitter {
             ImageIO.write(img, "jpg", file);
             url = new URL("http://" + domain + "/data/" + file.getName());
         } catch (IOException e) {
-            log.error("Error saving file");
+            log.error("Error saving file", e);
             return null;
         }
 
