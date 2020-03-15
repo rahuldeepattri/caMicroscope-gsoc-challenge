@@ -1,0 +1,47 @@
+version: '3'
+services:
+  #Spring Boot Server made for challenge 
+  challenge-server:
+    image: challenge-server
+    build: ./caMicroscope-challenge-server/
+    ports:
+    - "8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      # domain: domain goes here
+    working_dir: /
+    volumes:
+      - ./data:/data
+    networks:
+      - app-network
+  
+  #Nginx Service for image and UI serving
+  storage:
+    image: nginx:stable
+    ports:
+      - "80"
+    volumes:
+      - ./data:/usr/share/nginx/html/data:rw
+      - ./caMicroscope-challenge-client/:/usr/share/nginx/html:rw
+    networks:
+      - app-network
+
+  #reverse proxy
+  reverse-proxy:
+    build: ./reverse-proxy/
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  caMicroscope-challenge-client:
+    driver: local
+  data:
+    driver: local
+

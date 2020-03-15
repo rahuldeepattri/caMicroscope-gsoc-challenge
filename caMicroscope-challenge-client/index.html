@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Client UI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+   
+  <div class="row">
+
+    <div class="col-md-12">
+
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">Prediction Service</h5>
+          <h4 class="card-title"> Upload Image</h4>
+        </div>
+        <div class="card-body">
+
+          <div >
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-category">Image selected</h5>
+              </div>
+              <div class="card-body">
+                <div style="text-align:center">
+
+                  
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center">
+
+            <form enctype="multipart/form-data">
+              <input name="file" id="fileToUpload" type="file" onchange="showPreview()"/>
+              <input type="button" id="upload" onclick="uploadImage()"  />
+            </form>
+            <br><br>
+            <img id="previewImage" />
+            <h3 *ngIf="isUploading">              
+                <i style="color: rgb(240, 170, 0)" class="now-ui-icons loader_refresh spin"></i>
+            </h3>
+            <h3 *ngIf="data!=undefined">{{data.data}}</h3>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    <canvas id="red-channel" style="border:1px solid #d3d3d3;" ></canvas>
+    <canvas id="blue-channel" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="green-channel" style="border:1px solid #d3d3d3;"></canvas>
+
+    <canvas id="combined-canvas" style="border:1px solid #d3d3d3;"></canvas>
+</body>
+</html>
