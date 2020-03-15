@@ -11,7 +11,7 @@ services:
       # domain: domain goes here
     working_dir: /
     volumes:
-      - ./data:/data
+      - ./data:/data:rw
     networks:
       - app-network
   
