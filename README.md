@@ -1,9 +1,9 @@
 # caMicroscope GSOC Code Challenge
 
-Technologies Used :-
-Frontend : Javascript and littlebit of Bootstrap
-Backend: Java-Spring Boot
-and Docker to package everything.
+Technologies Used :- <br>
+Frontend : Javascript and littlebit of Bootstrap <br>
+Backend: Java-Spring Boot <br>
+Docker to package everything <br>
  
 
 ## Build Project
