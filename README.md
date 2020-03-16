@@ -5,6 +5,9 @@ Frontend : Javascript and littlebit of Bootstrap <br>
 Backend: Java-Spring Boot <br>
 Docker to package everything <br>
  
+## Demo
+
+Please go to http://ec2-13-126-128-14.ap-south-1.compute.amazonaws.com
 
 ## Build Project
 
