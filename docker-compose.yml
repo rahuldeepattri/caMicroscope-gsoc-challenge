@@ -1,6 +1,6 @@
 version: '3'
 services:
-  #Spring Boot Server made for challenge 
+  #Spring Boot Server made for challenge .
   challenge-server:
     image: challenge-server
     build: ./caMicroscope-challenge-server/
@@ -15,7 +15,7 @@ services:
     networks:
       - app-network
   
-  #Nginx Service for image and UI serving
+  #Nginx Service for image and UI serving.
   storage:
     image: nginx:stable
     ports:
@@ -26,7 +26,7 @@ services:
     networks:
       - app-network
 
-  #reverse proxy
+  #reverse proxy to route requests.
   reverse-proxy:
     build: ./reverse-proxy/
     ports:
