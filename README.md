@@ -12,9 +12,6 @@ Image Merging is done at frontend using by looping through all pixels using canv
 
 Please go to http://ec2-13-126-128-14.ap-south-1.compute.amazonaws.com. <br>
 
-Note that the swagger ui is available for local build and run only.
-
-
 ## Run Project Locally
 
 Dependencies: docker & docker-compose<br>
