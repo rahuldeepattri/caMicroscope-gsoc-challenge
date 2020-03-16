@@ -21,11 +21,11 @@ The following guides illustrate how to use some features concretely:
 * [Accessing MongoDB Data with REST](https://spring.io/guides/gs/accessing-mongodb-data-rest/)
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 
-Useful commands 
+### Useful commands 
 
-*```docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer```
-*```docker run -d -it --name devtest -v "$(pwd)"/target:/app  nginx:latest ```
-*```docker run -p 9001:9000 -v "$(pwd)"/data:/data  minio/minio server /data```
-*```docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -v "$(pwd)"/data:/data -t springio/gs-spring-boot-docker```
-*```docker build -t springio/gs-spring-boot-docker .```
-mvn clean package
+* ```docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer```
+* ```docker run -d -it --name devtest -v "$(pwd)"/target:/app  nginx:latest ```
+* ```docker run -p 9001:9000 -v "$(pwd)"/data:/data  minio/minio server /data```
+* ```docker run -e "SPRING_PROFILES_ACTIVE=prod" -p 8080:8080 -v "$(pwd)"/data:/data -t springio/gs-spring-boot-docker```
+* ```docker build -t springio/gs-spring-boot-docker .```
+* ```mvn clean package```
