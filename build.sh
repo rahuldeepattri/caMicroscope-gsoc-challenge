@@ -1,1 +1,4 @@
-mvn -f ./caMicroscope-challenge-server/pom.xml clean package
+cd ./caMicroscope-challenge-server/
+./mvnw clean package
+cd ..
+
