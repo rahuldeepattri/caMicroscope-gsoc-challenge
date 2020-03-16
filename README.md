@@ -4,7 +4,6 @@ Technologies Used :- <br>
 Frontend : Javascript and littlebit of Bootstrap <br>
 Backend: Java-Spring Boot <br>
 Docker to package everything <br>
-<br><br>
 Image Splitting is done at backend in java by looping through all pixels using ImageIO library which comes with JDK and has support for plugins.<br>
 Image Merging is done at frontend using by looping through all pixels using canvas html element.
  
