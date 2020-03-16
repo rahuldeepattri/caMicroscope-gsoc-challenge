@@ -14,11 +14,17 @@ Please go to http://ec2-13-126-128-14.ap-south-1.compute.amazonaws.com. <br>
 
 Note that the swagger ui is available for local build and run only.
 
+
+## Run Project Locally
+
+Dependencies: docker & docker-compose<br>
+No need to execute build, it is optional.<br>
+To run execute ```sudo ./run.sh```  and Go to http://localhost or http://127.0.0.1.<br>
+To see result from api use  ```curl -X POST "http://localhost/server/api/splitRGB" -H "accept: */*" -H "Content-Type: multipart/form-data"  -F "image=@test.jpeg;type=image/jpeg" |  json_pp```
+
+test.jpeg is provided for testing.
+
 ## Build Project
 
 Dependencies: JDK should be set up in environment. [(steps)](https://blog.knoldus.com/installing-latest-oracle-jdk-on-linux-ec2-instance-centos/)<br>
 To build execute ```./build.sh```
-## Run Project Locally
-
-Dependencies: docker & docker-compose<br>
-To run execute ```sudo ./run.sh```  and Go to http://localhost or http://127.0.0.1.
