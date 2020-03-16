@@ -7,7 +7,9 @@ Docker to package everything <br>
  
 ## Demo
 
-Please go to http://ec2-13-126-128-14.ap-south-1.compute.amazonaws.com
+Please go to http://ec2-13-126-128-14.ap-south-1.compute.amazonaws.com. <br>
+
+Note that the swagger ui is available for local build and run only.
 
 ## Build Project
 
