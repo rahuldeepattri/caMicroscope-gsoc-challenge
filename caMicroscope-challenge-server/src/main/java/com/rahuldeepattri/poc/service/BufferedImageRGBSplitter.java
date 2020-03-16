@@ -26,8 +26,6 @@ public class BufferedImageRGBSplitter implements RGBImageSplitter {
 
     @Override
     public SplitRGBResponse split(MultipartFile image) throws IOException {
-//        File testFile = new File("test");
-//        FileUtils.writeByteArrayToFile(testFile, image.getBytes());
 
         BufferedImage receivedImage = ImageIO.read(image.getInputStream());
         List<BufferedImage> splitRGBList = BufferedImageConverter.splitRGB(receivedImage);
@@ -42,7 +40,7 @@ public class BufferedImageRGBSplitter implements RGBImageSplitter {
         File file = null;
         URL url = null;
         try {
-            file = new File("./data/" + UUID.randomUUID().toString() + ".jpg");
+            file = new File("/data/" + UUID.randomUUID().toString() + ".jpg");
             ImageIO.write(img, "jpg", file);
             url = new URL("http://" + domain + "/data/" + file.getName());
         } catch (IOException e) {
