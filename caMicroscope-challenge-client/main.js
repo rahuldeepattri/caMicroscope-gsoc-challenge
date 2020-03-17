@@ -23,6 +23,7 @@ function uploadImage() {
         .then((channels) => showCombined(channels))
         .catch((error) => {
             console.error('Error:', error);
+            alert("Could not process this image, please report it");
         });
 
 
